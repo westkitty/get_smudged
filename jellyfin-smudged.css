@@ -1,0 +1,204 @@
+/* =========================================================
+   GET SMUDGED — Jellyfin add-on CSS
+   Assets: https://github.com/westkitty/get_smudged
+
+   Add this AFTER your existing Jellyfin custom CSS.
+   Dexter is deliberately excluded from all ambient layers.
+   He appears only as an occasional poster-hover easter egg.
+   ========================================================= */
+
+:root {
+  --smudge-ambient-opacity: .62;
+  --smudge-migration-opacity: .54;
+  --smudge-hover-opacity: .98;
+  --smudge-hover-size: 118px;
+  --smudge-migration-duration: 180s;
+}
+
+/* Decorative layers never receive clicks or taps. */
+.backgroundContainer::before,
+.backgroundContainer::after,
+.card::after {
+  pointer-events: none !important;
+}
+
+/* Ambient Smudging: 15 static Smudges around the interface. */
+.backgroundContainer::before {
+  content: "" !important;
+  position: absolute !important;
+  inset: 0 !important;
+  opacity: var(--smudge-ambient-opacity) !important;
+  background-image:
+    url("https://cdn.jsdelivr.net/gh/westkitty/get_smudged@main/assets/smudges/smudge-01-hyper-pounce.webp"),
+    url("https://cdn.jsdelivr.net/gh/westkitty/get_smudged@main/assets/smudges/smudge-02-speed-walk.webp"),
+    url("https://cdn.jsdelivr.net/gh/westkitty/get_smudged@main/assets/smudges/smudge-03-startled-dance.webp"),
+    url("https://cdn.jsdelivr.net/gh/westkitty/get_smudged@main/assets/smudges/smudge-04-tall-sit.webp"),
+    url("https://cdn.jsdelivr.net/gh/westkitty/get_smudged@main/assets/smudges/smudge-05-puffed-stand.webp"),
+    url("https://cdn.jsdelivr.net/gh/westkitty/get_smudged@main/assets/smudges/smudge-06-wide-eyed-sit.webp"),
+    url("https://cdn.jsdelivr.net/gh/westkitty/get_smudged@main/assets/smudges/smudge-07-low-stalk.webp"),
+    url("https://cdn.jsdelivr.net/gh/westkitty/get_smudged@main/assets/smudges/smudge-08-goblin-claw.webp"),
+    url("https://cdn.jsdelivr.net/gh/westkitty/get_smudged@main/assets/smudges/smudge-09-vertical-grab.webp"),
+    url("https://cdn.jsdelivr.net/gh/westkitty/get_smudged@main/assets/smudges/smudge-10-full-sprint.webp"),
+    url("https://cdn.jsdelivr.net/gh/westkitty/get_smudged@main/assets/smudges/smudge-11-whirlwind.webp"),
+    url("https://cdn.jsdelivr.net/gh/westkitty/get_smudged@main/assets/smudges/smudge-12-upside-down-flail.webp"),
+    url("https://cdn.jsdelivr.net/gh/westkitty/get_smudged@main/assets/smudges/smudge-13-low-pounce.webp"),
+    url("https://cdn.jsdelivr.net/gh/westkitty/get_smudged@main/assets/smudges/smudge-14-boxing-stance.webp"),
+    url("https://cdn.jsdelivr.net/gh/westkitty/get_smudged@main/assets/smudges/smudge-15-grumpy-loaf.webp") !important;
+  background-repeat: no-repeat !important;
+  background-size:
+    88px auto, 94px auto, 84px auto, 76px auto, 82px auto,
+    72px auto, 92px auto, 104px auto, 76px auto, 112px auto,
+    108px auto, 90px auto, 96px auto, 74px auto, 72px auto !important;
+  background-position:
+    2% 84%, 10% 23%, 18% 68%, 27% 10%, 34% 88%,
+    42% 32%, 49% 76%, 58% 13%, 65% 92%, 72% 42%,
+    80% 78%, 87% 18%, 94% 61%, 38% 57%, 61% 63% !important;
+  animation: none !important;
+}
+
+/* Smudge Migration: 15 more Smudges drift as one GPU-friendly layer. */
+.backgroundContainer::after {
+  content: "" !important;
+  position: absolute !important;
+  inset: -4% -7% !important;
+  opacity: var(--smudge-migration-opacity) !important;
+  background-image:
+    url("https://cdn.jsdelivr.net/gh/westkitty/get_smudged@main/assets/smudges/smudge-16-sideways-startle.webp"),
+    url("https://cdn.jsdelivr.net/gh/westkitty/get_smudged@main/assets/smudges/smudge-17-puffball-crouch.webp"),
+    url("https://cdn.jsdelivr.net/gh/westkitty/get_smudged@main/assets/smudges/smudge-18-belly-roll.webp"),
+    url("https://cdn.jsdelivr.net/gh/westkitty/get_smudged@main/assets/smudges/smudge-19-alert-stand.webp"),
+    url("https://cdn.jsdelivr.net/gh/westkitty/get_smudged@main/assets/smudges/smudge-20-long-stretch.webp"),
+    url("https://cdn.jsdelivr.net/gh/westkitty/get_smudged@main/assets/smudges/smudge-21-tornado-spin.webp"),
+    url("https://cdn.jsdelivr.net/gh/westkitty/get_smudged@main/assets/smudges/smudge-22-slide-pounce.webp"),
+    url("https://cdn.jsdelivr.net/gh/westkitty/get_smudged@main/assets/smudges/smudge-23-upside-down-drop.webp"),
+    url("https://cdn.jsdelivr.net/gh/westkitty/get_smudged@main/assets/smudges/smudge-24-meerkat-stand.webp"),
+    url("https://cdn.jsdelivr.net/gh/westkitty/get_smudged@main/assets/smudges/smudge-25-judgment-loaf.webp"),
+    url("https://cdn.jsdelivr.net/gh/westkitty/get_smudged@main/assets/smudges/smudge-26-arched-side-eye.webp"),
+    url("https://cdn.jsdelivr.net/gh/westkitty/get_smudged@main/assets/smudges/smudge-27-sneak-crawl.webp"),
+    url("https://cdn.jsdelivr.net/gh/westkitty/get_smudged@main/assets/smudges/smudge-28-chaos-roll.webp"),
+    url("https://cdn.jsdelivr.net/gh/westkitty/get_smudged@main/assets/smudges/smudge-29-bristled-stand.webp"),
+    url("https://cdn.jsdelivr.net/gh/westkitty/get_smudged@main/assets/smudges/smudge-30-downward-stretch.webp") !important;
+  background-repeat: no-repeat !important;
+  background-size:
+    94px auto, 86px auto, 92px auto, 80px auto, 98px auto,
+    118px auto, 110px auto, 88px auto, 72px auto, 76px auto,
+    90px auto, 92px auto, 96px auto, 84px auto, 104px auto !important;
+  background-position:
+    4% 36%, 12% 72%, 20% 14%, 29% 91%, 37% 48%,
+    45% 5%, 53% 80%, 62% 28%, 69% 61%, 77% 94%,
+    85% 40%, 93% 8%, 33% 67%, 58% 54%, 74% 20% !important;
+  transform: translate3d(0,0,0);
+  will-change: transform;
+  animation: smudgeMigration var(--smudge-migration-duration) linear infinite alternate !important;
+}
+
+@keyframes smudgeMigration {
+  0%   { transform: translate3d(-1.4%, 0, 0); }
+  50%  { transform: translate3d(.6%, -.5%, 0); }
+  100% { transform: translate3d(1.8%, .4%, 0); }
+}
+
+/* Poster Smudging. */
+.card,
+.cardBox,
+.cardScalable,
+.itemsContainer,
+.vertical-wrap {
+  overflow: visible !important;
+}
+
+.card {
+  position: relative !important;
+}
+
+.card:hover,
+.card:focus-within,
+.card:focus-visible {
+  z-index: 12 !important;
+}
+
+.card:hover::after,
+.card:focus-within::after,
+.card:focus-visible::after {
+  content: "" !important;
+  position: absolute !important;
+  right: -24px;
+  bottom: 12px;
+  width: var(--smudge-hover-size);
+  height: var(--smudge-hover-size);
+  z-index: 10;
+  opacity: var(--smudge-hover-opacity);
+  background: url("https://cdn.jsdelivr.net/gh/westkitty/get_smudged@main/assets/smudges/smudge-08-goblin-claw.webp") center / contain no-repeat !important;
+  filter: drop-shadow(0 8px 12px rgba(0,0,0,.25));
+  transform: rotate(-5deg);
+  transition: opacity 120ms ease-out, transform 120ms ease-out;
+}
+
+.card:nth-child(3n):is(:hover, :focus-within, :focus-visible)::after {
+  background-image: url("https://cdn.jsdelivr.net/gh/westkitty/get_smudged@main/assets/smudges/smudge-13-low-pounce.webp") !important;
+  transform: rotate(4deg);
+}
+
+.card:nth-child(4n):is(:hover, :focus-within, :focus-visible)::after {
+  background-image: url("https://cdn.jsdelivr.net/gh/westkitty/get_smudged@main/assets/smudges/smudge-09-vertical-grab.webp") !important;
+  left: -20px;
+  right: auto;
+  transform: rotate(-7deg);
+}
+
+.card:nth-child(5n):is(:hover, :focus-within, :focus-visible)::after {
+  background-image: url("https://cdn.jsdelivr.net/gh/westkitty/get_smudged@main/assets/smudges/smudge-22-slide-pounce.webp") !important;
+  width: 130px;
+  height: 130px;
+}
+
+.card:nth-child(7n):is(:hover, :focus-within, :focus-visible)::after {
+  background-image: url("https://cdn.jsdelivr.net/gh/westkitty/get_smudged@main/assets/smudges/smudge-11-whirlwind.webp") !important;
+}
+
+/* Dexter appears only occasionally on poster hover. Never ambient. */
+.card:nth-child(17n + 5):is(:hover, :focus-within, :focus-visible)::after {
+  background-image: url("https://cdn.jsdelivr.net/gh/westkitty/get_smudged@main/assets/dexter/dexter-unimpressed.webp") !important;
+  width: 86px;
+  height: 86px;
+  left: -12px;
+  right: auto;
+  bottom: 8px;
+  opacity: .96;
+  transform: rotate(-2deg);
+  filter: drop-shadow(0 5px 8px rgba(0,0,0,.20));
+}
+
+/* Calm everything down in Migraine Mode. */
+html[data-migraine-mode="true"] .backgroundContainer::before,
+html[data-migraine-mode="true"] .backgroundContainer::after,
+html.migraine-mode .backgroundContainer::before,
+html.migraine-mode .backgroundContainer::after {
+  animation: none !important;
+  opacity: .30 !important;
+  filter: saturate(.62) brightness(.78) !important;
+}
+
+html[data-migraine-mode="true"] .card::after,
+html.migraine-mode .card::after {
+  animation: none !important;
+  opacity: .42 !important;
+  filter: saturate(.62) brightness(.78) !important;
+}
+
+@media (max-width: 900px) {
+  :root { --smudge-hover-size: 92px; }
+  .backgroundContainer::before,
+  .backgroundContainer::after { opacity: .42 !important; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .backgroundContainer::after {
+    animation: none !important;
+    will-change: auto !important;
+  }
+
+  .card::after {
+    transition: none !important;
+  }
+}
