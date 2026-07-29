@@ -1,8 +1,8 @@
 // ==UserScript==
 // @name         Get Smudged - Random Poster Characters
 // @namespace    https://github.com/westkitty/get_smudged
-// @version      2.1.0
-// @description  Picks a fresh random Smudge whenever a Jellyfin poster is entered, with a 1-in-1000 Dexter cameo.
+// @version      2.1.1
+// @description  Picks a fresh random Smudge whenever a Jellyfin poster is entered, with a 1-in-50 Dexter cameo.
 // @match        https://media.westcat.ca/*
 // @run-at       document-end
 // @grant        none
@@ -15,7 +15,7 @@
   window.__getSmudgedRandomizerInstalled = true;
 
   const CDN = 'https://cdn.jsdelivr.net/gh/westkitty/get_smudged@main/assets';
-  const DEXTER_ODDS = 1000; // One Dexter appearance per 1,000 card entries on average.
+  const DEXTER_ODDS = 50; // One Dexter appearance per 50 card entries on average.
 
   const SMUDGES = [
     'smudge-01-hyper-pounce.webp',
